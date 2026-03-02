@@ -1,6 +1,6 @@
 {
   "name": "openapi-sampler",
-  "version": "1.6.1",
+  "version": "1.7.1",
   "description": "Tool for generation samples based on OpenAPI payload/response schema",
   "main": "dist/openapi-sampler.js",
   "module": "src/openapi-sampler.js",
@@ -13,7 +13,9 @@
     "coverage": "jest --coverage",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
     "build": "gulp build",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "changeset": "npx @changesets/cli --",
+    "release": "npm run build && npm run changeset publish"
   },
   "files": [
     "src/",
@@ -21,7 +23,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/redocly/openapi-sampler.git"
+    "url": "https://github.com/Redocly/openapi-sampler.git"
   },
   "keywords": [
     "OpenAPI",
@@ -33,14 +35,15 @@
   "author": "Roman Hotsiy <gotsijroman@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/redocly/openapi-sampler/issues"
+    "url": "https://github.com/Redocly/openapi-sampler/issues"
   },
-  "homepage": "https://github.com/redocly/openapi-sampler/",
+  "homepage": "https://github.com/Redocly/openapi-sampler/",
   "browserslist": "> 0.25%, not dead",
   "devDependencies": {
     "@babel/core": "^7.7.2",
     "@babel/preset-env": "^7.7.1",
     "@babel/register": "^7.7.0",
+    "@changesets/cli": "^2.29.8",
     "@types/jest": "^29.5.12",
     "ajv": "^8.1.0",
     "ajv-formats": "^2.0.2",
@@ -68,12 +71,14 @@
   },
   "dependencies": {
     "@types/json-schema": "^7.0.7",
-    "fast-xml-parser": "^4.5.0",
+    "fast-xml-parser": "^5.3.8",
     "json-pointer": "0.6.2"
   },
   "overrides": {
     "braces": "3.0.3",
     "elliptic@<6.6.0": ">=6.6.0",
-    "form-data": "4.0.4"
+    "form-data": "4.0.4",
+    "tmp": ">=0.2.4",
+    "js-yaml@>=4.0.0 <4.1.1": ">=4.1.1"
   }
 }
